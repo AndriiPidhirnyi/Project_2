@@ -1,12 +1,12 @@
 // page init
 jQuery(function(){
-	initCarousel();
+	initCarousel2();
 });
 
 // scroll gallery init
-function initCarousel() {
-	jQuery('div.carousel').scrollGallery({
-		mask: 'div.gmask',
+function initCarousel2() {
+	jQuery('div.carousel2').scrollGallery({
+		mask: 'div.gitem-mask',
 		slider: '>ul',
 		slides: '>li',
 		// currentNumber: 'span.cur-num',
@@ -19,7 +19,7 @@ function initCarousel() {
 		maskAutoSize: false,
 		switchTime: 2000,
 		animSpeed: 600,
-		step: 1,
+		step: 2,
 		vertical: true
 	});
 
