@@ -16,7 +16,6 @@ body {
 
 #wrapper {
 	width: 100%;
-	height: 500px;
 }
 
 .header-box {
@@ -72,7 +71,11 @@ body {
 	}
 
 	&:hover ul {
-		display: block;
+		left: 0;
+	}
+
+	&:hover .patch {
+		left: -15px;
 	}
 
 	a {
@@ -81,7 +84,7 @@ body {
 		text-decoration: none;
 		font-weight: bold;
 		padding: 0 26px;
-		line-height: 29px;
+		line-height: 28px;
 		border: 1px solid transparent;
 		@include text-shadow($text-shadow-color 1px 1px 0);
 
@@ -94,11 +97,21 @@ body {
 		}
 	}
 
-	ul {
-		display: none;
+	.patch {
 		position: absolute;
 		top: 100%;
-		left: 0;
+		left: -9999px;
+		z-index: 32;
+		height: 17px;
+		width: 250px;
+		@include background-image(linear-gradient(left, #f9f8ef, #f4f1e1))
+	}
+
+	ul {
+		position: absolute;
+		top: 47px;
+		left: -9999px;
+		z-index: 30;
 		width: 185px;
 		background: $submenu-bg;
 		padding: 0 6px 4px;
@@ -144,7 +157,6 @@ body {
 }
 
 .news-box {
-	overflow: hidden;
 	background: #fff;
 }
 
@@ -157,18 +169,32 @@ body {
 
 .news-holder {
 	width: $page-width;
-	background: url("../images/news-image.png") 0 3px no-repeat;
 	height: 388px;
 	overflow: hidden;
+	position: relative;
 	@include center-block();
 }
 
+.images-box {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	padding: 3px 0 0;
+
+	img {
+		vertical-align: top;
+	}
+}
+
 .news {
-	float: right;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 15;
 	width: 387px;
 	background: url("../images/news-bg_cr.png") 100% 0 no-repeat;
-	height: 100%;
-	padding: 34px 0 0 138px;
+	padding: 34px 0 67px 138px;
 
 	h2 {
 		font-size: 46px;
@@ -189,7 +215,7 @@ body {
 }
 
 .news-link {
-	padding: 18px 0 0;
+	padding: 18px 0;
 	height: 52px;
 
 	a {
