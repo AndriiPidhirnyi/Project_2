@@ -3,9 +3,9 @@
 
 // import font
 @font-face {
-	font-family: MyRiadPro;
-	src: local("MyRiadPro-Regular"),
-		url(../fonts/MyriadPro-Regular.otf);
+	font-family: MyriadPro;
+	src: local("MyriadPro-Regular"),
+		url("../font/MyriadPro-Regular.otf");
 }
 
 body {
@@ -41,7 +41,7 @@ body {
 
 #logo {
 	position: absolute;
-	left: 0;
+	left: 5px;
 	top: 0;
 	width: $logo-width;
 	height: $logo-height;
@@ -66,14 +66,21 @@ body {
 
 #main-nav li {
 	float: left;
-	position: relative;
+
+	&:hover {
+		position: relative;
+	}
+
+	&:hover ul {
+		display: block;
+	}
 
 	a {
 		color: $link-color;
 		display: block;
 		text-decoration: none;
 		font-weight: bold;
-		padding: 0 27px;
+		padding: 0 26px;
 		line-height: 29px;
 		border: 1px solid transparent;
 		@include text-shadow($text-shadow-color 1px 1px 0);
@@ -85,14 +92,14 @@ body {
 			@include background-image(linear-gradient($link-hover-top-color, $link-hover-bot-color));
 			@include box-shadow($link-inset-shadow-color 1px 1px 4px inset);
 		}
-
 	}
 
 	ul {
+		display: none;
 		position: absolute;
-		top: 47px;
+		top: 100%;
 		left: 0;
-		width: 162px;
+		width: 185px;
 		background: $submenu-bg;
 		padding: 0 6px 4px;
 		@include box-shadow($submenu-block-shadow-color 0 2px 4px);
@@ -129,4 +136,83 @@ body {
 	}
 }
 
+#main {
+	background: #f7f5e9;
+	width: 100%;
+}
 
+.news-box {
+	overflow: hidden;
+	background: #fff;
+}
+
+.news-box:after {
+	content:"";
+	display: block;
+	height: 1px;
+	@include background-image(linear-gradient(left, #d6d3c2, #fbfbf8, #d6d3c2));
+}
+
+.news-holder {
+	width: $page-width;
+	background: url("../images/news-image.png") 0 3px no-repeat;
+	height: 388px;
+	overflow: hidden;
+	@include center-block();
+}
+
+.news {
+	float: right;
+	width: 387px;
+	background: url("../images/news-bg_cr.png") 100% 0 no-repeat;
+	height: 100%;
+	padding: 34px 0 0 138px;
+
+	h2 {
+		font-size: 46px;
+		line-height: 46px;
+		font-weight: bold;
+		letter-spacing: -4px;
+		color: #0e218a;
+		margin: 0 0 13px;
+		@include text-shadow(rgba(80,80,80,0.3) 2px 2px 3px);
+	}
+
+	p {
+		font-size: 13px;
+		line-height: 16px;
+		color: #777;
+		margin: 0 0 16px;
+	}
+}
+
+.news-link {
+	padding: 18px 0 0;
+	height: 52px;
+
+	a {
+		color: #fff;
+		border: 1px solid #011581;
+		display: inline-block;
+		@include background-image(linear-gradient(#4a5ab2, #031682));
+		text-decoration: none;
+		font-size: 24px;
+		line-height: 50px;
+		padding: 0 33px;
+		letter-spacing: -3px;
+		height: 100%;
+
+		&:hover {
+			@include background-image(linear-gradient(#aeb6dd, #1d3efa));
+		}
+	}
+}
+
+.content-box {
+	width: $page-width;
+	padding: 0 0 0 ($page-width - 465px);
+	@include center-block();
+	position: relative;
+}
+
+.
